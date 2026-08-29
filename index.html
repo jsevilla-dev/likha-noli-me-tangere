@@ -40,11 +40,47 @@
       scroll-behavior: smooth;
     }
 
+    /* ===== Global Styles & Accessibility ===== */
+    :focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 5000;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: #FFFFFF;
+      border-radius: 8px;
+      transform: translateY(-150%);
+      transition: transform 0.15s ease;
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+    }
+
     body {
       font-family: Georgia, "Times New Roman", serif;
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.65;
+      font-size: 18px;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
@@ -83,7 +119,7 @@
       gap: 9px;
       color: var(--red);
       font-family: Arial, sans-serif;
-      font-size: 0.76rem;
+      font-size: 0.9rem;
       font-weight: 800;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -111,6 +147,7 @@
       font-size: 1.08rem;
     }
 
+    /* ===== Navigation ===== */
     .navbar {
       position: fixed;
       inset: 0 0 auto;
@@ -164,7 +201,7 @@
     .brand-text span {
       color: var(--muted);
       font-family: Arial, sans-serif;
-      font-size: 0.61rem;
+      font-size: 0.84rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-top: 4px;
@@ -180,7 +217,7 @@
       padding: 8px 10px;
       border-radius: 8px;
       font-family: Arial, sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: #263A5A;
       transition: 0.2s ease;
@@ -236,6 +273,7 @@
       font-size: 1.05rem;
     }
 
+    /* ===== Hero ===== */
     .hero {
       min-height: 100vh;
       padding-top: calc(var(--nav-height) + 60px);
@@ -277,7 +315,7 @@
       letter-spacing: 0.18em;
       color: var(--red);
       font-weight: 800;
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       margin-bottom: 20px;
     }
 
@@ -311,7 +349,7 @@
       padding: 13px 21px;
       border-radius: 10px;
       font-family: Arial, sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.95rem;
       font-weight: 800;
       transition: 0.2s ease;
     }
@@ -355,9 +393,11 @@
       z-index: 2;
     }
 
+    .cover-frame picture,
     .cover-frame img {
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center;
       display: block;
@@ -372,11 +412,12 @@
       transform: rotate(180deg);
       font-family: Arial, sans-serif;
       color: var(--red);
-      font-size: 0.65rem;
+      font-size: 0.9rem;
       letter-spacing: 0.16em;
       font-weight: 800;
     }
 
+    /* ===== History ===== */
     .history {
       background: var(--blue-dark);
       color: #FFFFFF;
@@ -424,6 +465,7 @@
       font-style: italic;
     }
 
+    /* ===== Summary / Timeline ===== */
     .summary-header {
       display: flex;
       justify-content: space-between;
@@ -465,7 +507,7 @@
       place-items: center;
       color: var(--red);
       font-family: Arial, sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.95rem;
       font-weight: 900;
       z-index: 2;
     }
@@ -481,7 +523,7 @@
     .timeline-card small {
       color: var(--red);
       font-family: Arial, sans-serif;
-      font-size: 0.68rem;
+      font-size: 0.9rem;
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -496,6 +538,7 @@
       color: var(--muted);
     }
 
+    /* ===== Characters ===== */
     .characters {
       background: var(--blue-pale);
     }
@@ -523,7 +566,7 @@
       color: var(--ink);
     }
 
-    .search-box input:focus {
+    .search-box input:focus-visible {
       border-color: var(--red);
     }
 
@@ -540,7 +583,7 @@
       background: var(--paper);
       border-radius: 10px;
       font-family: Arial, sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       font-weight: 800;
       color: var(--muted);
       transition: 0.2s ease;
@@ -610,9 +653,11 @@
       min-height: 100%;
     }
 
+    .portrait picture,
     .portrait img {
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center top;
       display: block;
@@ -648,7 +693,7 @@
 
     .char-info small {
       font-family: Arial, sans-serif;
-      font-size: 0.64rem;
+      font-size: 0.9rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -663,7 +708,7 @@
 
     .char-info p {
       font-family: Arial, sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.95rem;
       opacity: 0.8;
     }
 
@@ -677,6 +722,7 @@
       border-radius: var(--radius);
     }
 
+    /* ===== Character Modal ===== */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -754,7 +800,7 @@
     .modal-role {
       font-family: Arial, sans-serif;
       color: var(--red);
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -770,6 +816,7 @@
       color: var(--muted);
     }
 
+    /* ===== Themes ===== */
     .themes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -798,7 +845,7 @@
       font-family: Arial, sans-serif;
       font-weight: 900;
       color: var(--yellow);
-      font-size: 0.72rem;
+      font-size: 0.84rem;
     }
 
     .theme-card h3 {
@@ -812,6 +859,7 @@
       margin-top: 15px;
     }
 
+    /* ===== Legacy ===== */
     .legacy {
       background: var(--red);
       color: white;
@@ -858,10 +906,11 @@
       border: 1px solid rgba(255,255,255,0.22);
       border-radius: 13px;
       font-family: Arial, sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       color: #FFF9C4;
     }
 
+    /* ===== Quiz ===== */
     .quiz-section {
       background: var(--paper);
     }
@@ -902,7 +951,7 @@
       display: flex;
       justify-content: space-between;
       font-family: Arial, sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.95rem;
       font-weight: 800;
       color: var(--muted);
       text-transform: uppercase;
@@ -954,7 +1003,7 @@
       min-height: 28px;
       margin-top: 18px;
       font-family: Arial, sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 700;
     }
 
@@ -1002,9 +1051,10 @@
       background: var(--paper);
       border-radius: 10px;
       font-family: Arial, sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
     }
 
+    /* ===== Contact / Feedback ===== */
     .contact-grid {
       display: grid;
       grid-template-columns: 0.75fr 1.25fr;
@@ -1037,7 +1087,7 @@
     .form-group label {
       display: block;
       font-family: Arial, sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       font-weight: 800;
       margin-bottom: 7px;
     }
@@ -1059,8 +1109,8 @@
       resize: vertical;
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group input:focus-visible,
+    .form-group textarea:focus-visible {
       border-color: var(--red);
     }
 
@@ -1068,7 +1118,7 @@
       min-height: 18px;
       color: var(--red);
       font-family: Arial, sans-serif;
-      font-size: 0.68rem;
+      font-size: 0.9rem;
       margin-top: 4px;
     }
 
@@ -1089,7 +1139,7 @@
       border-radius: 11px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.22);
       font-family: Arial, sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       transform: translateY(30px);
       opacity: 0;
       pointer-events: none;
@@ -1101,6 +1151,7 @@
       opacity: 1;
     }
 
+    /* ===== Footer & References ===== */
     footer {
       background: #061B3A;
       color: #DCE7F5;
@@ -1118,6 +1169,16 @@
       color: white;
     }
 
+    .footer-section-title {
+      margin-top: 20px;
+      color: var(--yellow-light);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .footer-tagline {
       color: #AFC3DF;
       max-width: 450px;
@@ -1128,7 +1189,7 @@
       justify-self: end;
       text-align: right;
       font-family: Arial, sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       line-height: 1.8;
       color: #B9CBE2;
     }
@@ -1137,15 +1198,89 @@
       color: white;
     }
 
+
+    .references {
+      margin-top: 42px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .references .section-label {
+      color: var(--yellow-light);
+      margin-bottom: 8px;
+    }
+
+    .references .section-label::before {
+      background: var(--yellow-light);
+    }
+
+    .references h2 {
+      color: #FFFFFF;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .reference-list {
+      margin: 0;
+      padding-left: 24px;
+      max-width: 850px;
+      color: #DCE7F5;
+    }
+
+    .reference-list li {
+      padding-left: 6px;
+      line-height: 1.7;
+    }
+
+    .reference-list a {
+      color: var(--yellow-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .reference-list a:hover,
+    .reference-list a:focus-visible {
+      color: #FFFFFF;
+    }
+
     .copyright {
       border-top: 1px solid rgba(255,255,255,0.1);
       margin-top: 40px;
       padding-top: 20px;
       font-family: Arial, sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.9rem;
       color: #7A8BA5;
     }
 
+    /* ===== Back to Top ===== */
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1500;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--blue-border);
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--blue-dark);
+      box-shadow: 0 10px 30px rgba(13, 71, 161, 0.16);
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive Layout ===== */
     @media (max-width: 1050px) {
       .desktop-nav {
         display: none;
@@ -1305,6 +1440,7 @@
 
 <body>
 
+  <!-- ===== Site Header & Navigation ===== -->
   <header class="navbar">
     <div class="nav-inner">
       <a href="#home" class="brand" aria-label="LIKHA home">
@@ -1333,7 +1469,7 @@
     </div>
   </header>
 
-  <aside class="mobile-drawer" id="mobileDrawer">
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
     <a href="#kasaysayan">Kasaysayan</a>
     <a href="#buod">Buod</a>
     <a href="#tauhan">Mga Tauhan</a>
@@ -1343,7 +1479,8 @@
     <a href="#kontak">Kontak</a>
   </aside>
 
-  <main>
+  <!-- ===== Main Content ===== -->
+  <main id="main-content">
 
     <section class="hero" id="home">
       <div class="container hero-grid">
@@ -1371,11 +1508,17 @@
 
         <div class="cover-stage">
           <div class="cover-frame">
-            <img
-              src="images/noli-cover.jpg"
-              alt="Orihinal na pabalat ng Noli Me Tángere"
-              loading="eager"
-            >
+            <picture>
+              <source srcset="images/noli-cover.avif" type="image/avif">
+              <source srcset="images/noli-cover.webp" type="image/webp">
+              <img
+                src="images/noli-cover.jpg"
+                alt="Orihinal na pabalat ng Noli Me Tángere"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              >
+            </picture>
           </div>
         </div>
 
@@ -1386,7 +1529,7 @@
       <div class="container history-grid">
 
         <div>
-          <div class="section-label">Kasaysayan</div>
+          <p class="section-label">Kasaysayan</p>
           <div class="history-big-year">1887</div>
         </div>
 
@@ -1424,7 +1567,7 @@
 
         <div class="summary-header">
           <div>
-            <div class="section-label">Buod</div>
+            <p class="section-label">Buod</p>
             <h2 class="section-title">Ang Kuwento sa mga Yugto</h2>
           </div>
 
@@ -1514,7 +1657,7 @@
     <section class="section characters" id="tauhan">
       <div class="container">
 
-        <div class="section-label">Mga Tauhan</div>
+        <p class="section-label">Mga Tauhan</p>
         <h2 class="section-title">Mga Mukha ng Noli</h2>
         <p class="section-intro">
           Kilalanin ang mga tauhang kumakatawan sa iba't ibang
@@ -1525,28 +1668,32 @@
         <div class="character-tools">
 
           <div class="search-box">
+            <label class="sr-only" for="characterSearch">Maghanap ng tauhan</label>
             <input
               type="search"
               id="characterSearch"
               placeholder="Maghanap ng tauhan..."
               aria-label="Maghanap ng tauhan"
+              aria-controls="characterGrid"
+              aria-describedby="characterSearchStatus"
             >
           </div>
+          <div id="characterSearchStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
           <div class="filter-chips" id="filterChips">
-            <button class="filter-chip active" data-filter="lahat">
+            <button class="filter-chip active" data-filter="lahat" aria-pressed="true">
               Lahat
             </button>
 
-            <button class="filter-chip" data-filter="protagonista">
+            <button class="filter-chip" data-filter="protagonista" aria-pressed="false">
               Protagonista
             </button>
 
-            <button class="filter-chip" data-filter="simbahan">
+            <button class="filter-chip" data-filter="simbahan" aria-pressed="false">
               Simbahan
             </button>
 
-            <button class="filter-chip" data-filter="pamilya">
+            <button class="filter-chip" data-filter="pamilya" aria-pressed="false">
               Pamilya
             </button>
           </div>
@@ -1561,7 +1708,7 @@
     <section class="section" id="tema">
       <div class="container">
 
-        <div class="section-label">Mga Tema</div>
+        <p class="section-label">Mga Tema</p>
         <h2 class="section-title">Mga Isyung Hindi Kumukupas</h2>
         <p class="section-intro">
           Higit pa sa kuwento nina Ibarra at María Clara,
@@ -1618,7 +1765,7 @@
       <div class="container legacy-grid">
 
         <div>
-          <div class="section-label">Pamana</div>
+          <p class="section-label">Pamana</p>
           <div class="law-number">1425</div>
         </div>
 
@@ -1655,7 +1802,7 @@
     <section class="section quiz-section" id="quiz">
       <div class="container">
 
-        <div class="section-label">Interactive Quiz</div>
+        <p class="section-label">Interactive Quiz</p>
         <h2 class="section-title">Gaano Mo Kakilala ang Noli?</h2>
         <p class="section-intro">
           Subukan ang iyong kaalaman. Sagutin ang bawat tanong
@@ -1673,7 +1820,7 @@
       <div class="container contact-grid">
 
         <div class="contact-info">
-          <div class="section-label">Kontak</div>
+          <p class="section-label">Kontak</p>
 
           <h2>
             May nais kang
@@ -1734,12 +1881,15 @@
 
   </main>
 
+  <!-- ===== Character Details Modal ===== -->
   <div
     class="modal-overlay"
     id="characterModal"
     role="dialog"
     aria-modal="true"
     aria-labelledby="modalCharacterName"
+    aria-describedby="modalCharacterBio"
+    tabindex="-1"
   >
     <div class="modal">
 
@@ -1774,6 +1924,9 @@
     aria-live="polite"
   ></div>
 
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Bumalik sa itaas" title="Bumalik sa itaas">↑</button>
+
+  <!-- ===== Site Footer ===== -->
   <footer>
     <div class="container">
 
@@ -1781,6 +1934,7 @@
 
         <div>
           <div class="footer-brand">LIKHA</div>
+          <p class="footer-section-title">About</p>
 
           <p class="footer-tagline">
             Noli Me Tángere Digital Archive —
@@ -1807,6 +1961,34 @@
 
       </div>
 
+      <!-- ===== References / Sanggunian ===== -->
+      <section class="references" aria-labelledby="references-title">
+        <div class="section-label">Sanggunian</div>
+        <h2 id="references-title">References</h2>
+        <ol class="reference-list">
+          <li>
+            Wikipedia contributors. <cite>Noli Me Tángere (novel)</cite>.
+            <a href="https://en.wikipedia.org/wiki/Noli_Me_T%C3%A1ngere_(novel)" target="_blank" rel="noopener noreferrer">Wikipedia</a>.
+            Accessed August 29, 2026.
+          </li>
+          <li>
+            Rizal, José. <cite>Noli Me Tangere</cite>, salin ni Pascual H. Poblete.
+            <a href="https://www.gutenberg.org/ebooks/20228" target="_blank" rel="noopener noreferrer">Project Gutenberg, eBook #20228</a>.
+            Accessed August 29, 2026.
+          </li>
+          <li>
+            National Historical Commission of the Philippines. <cite>Jose Rizal (1861–1896)</cite>.
+            <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-7/" target="_blank" rel="noopener noreferrer">NHCP Historical Sites Registry</a>.
+            Accessed August 29, 2026.
+          </li>
+          <li>
+            Republic of the Philippines. <cite>Republic Act No. 1425</cite> (June 12, 1956).
+            <a href="https://www.officialgazette.gov.ph/1956/06/12/republic-act-no-1425/" target="_blank" rel="noopener noreferrer">Official Gazette</a>.
+            Accessed August 29, 2026.
+          </li>
+        </ol>
+      </section>
+
       <div class="copyright">
         © 2026 LIKHA — Noli Me Tángere Digital Archive
       </div>
@@ -1814,9 +1996,11 @@
     </div>
   </footer>
 
+  <!-- ===== Interactive Features ===== -->
   <script>
     "use strict";
 
+    // ===== State =====
     const state = {
       characters: [
         {
@@ -1846,10 +2030,10 @@
         {
           id: "salvi",
           name: "Padre Bernardo Salví",
-          role: "Prayleng Prangsiskano",
+          role: "Prayleng Pransiskano",
           tags: ["simbahan"],
           image: "images/padre-salvi.jpg",
-          bio: "Ang humalili kay Padre Dámaso bilang kura paroko ng San Diego. Lihim na hinahangaan si María Clara at siyang nagbalak ng huwad na pag-aalsa upang durugin si Ibarra."
+          bio: "Ang humalili kay Padre Dámaso bilang kura paroko ng San Diego. Lihim na nagkakagusto kay María Clara at may mahalagang papel sa mga pangyayaring nagdulot ng pagbagsak ni Ibarra."
         },
         {
           id: "elias",
@@ -1857,7 +2041,7 @@
           role: "Misteryosong Kaibigan",
           tags: ["protagonista"],
           image: "images/elias.jpg",
-          bio: "Isang bangkero na naging matalik na kaibigan ni Ibarra. Nagmula sa isang pamilyang winasak ng kawalang-katarungan, inialay niya ang kanyang buhay upang iligtas si Ibarra."
+          bio: "Isang bangkero/pilotong nakilala ni Ibarra at naging mahalagang kaalyado niya. Nagmula siya sa pamilyang winasak ng kawalang-katarungan at tumulong kay Ibarra sa mga mapanganib na sandali."
         },
         {
           id: "tiago",
@@ -1865,7 +2049,7 @@
           role: "Mayamang Negosyante",
           tags: ["pamilya"],
           image: "images/kapitan-tiago.jpg",
-          bio: "Kilala bilang isa sa pinakamayamang tao sa Binondo. Ama-sa-batas ni María Clara, itinuturing na Kastila ng mga elite dahil sa kanyang kayamanan at koneksyon."
+          bio: "Mayamang negosyante at kinikilalang ama ni María Clara. Dahil sa kanyang kayamanan at pakikibagay sa kolonyal na lipunan, malapit siya sa mga makapangyarihang tao ng Maynila at San Diego."
         },
         {
           id: "sisa",
@@ -1881,7 +2065,7 @@
           role: "Tagapayo",
           tags: ["protagonista"],
           image: "images/pilosopo-tasio.jpg",
-          bio: "Kilala rin bilang Don Anastasio, isang dating mag-aaral ng pilosopiya na naging tagapayo ni Ibarra. Sumusulat siya gamit ang sariling alpabetong hango sa wikang Tagalog."
+          bio: "Kilala rin bilang Don Anastasio, isang dating mag-aaral ng pilosopiya na tumatalakay sa mga ideya tungkol sa lipunan at pamahalaan. Ang kanyang mga sulatin ay gumagamit ng isang di-karaniwang alpabeto na mahirap unawain ng iba."
         },
         {
           id: "victorina",
@@ -1905,6 +2089,7 @@
       }
     };
 
+    // ===== DOM References =====
     const characterGrid = document.getElementById("characterGrid");
     const characterSearch = document.getElementById("characterSearch");
     const filterChips = document.getElementById("filterChips");
@@ -1922,6 +2107,7 @@
 
     const burgerBtn = document.getElementById("burgerBtn");
     const mobileDrawer = document.getElementById("mobileDrawer");
+    mobileDrawer.inert = true;
 
     const toast = document.getElementById("toast");
 
@@ -1945,9 +2131,12 @@
         .replaceAll("'", "&#039;");
     }
 
+    // ===== Mobile Navigation =====
     function closeMobileMenu() {
       mobileDrawer.classList.remove("open");
       burgerBtn.setAttribute("aria-expanded", "false");
+      mobileDrawer.setAttribute("aria-hidden", "true");
+      mobileDrawer.inert = true;
     }
 
     burgerBtn.addEventListener("click", () => {
@@ -1959,6 +2148,7 @@
       link.addEventListener("click", closeMobileMenu);
     });
 
+    // ===== Character Search & Filters =====
     function getFilteredCharacters() {
       const search = state.searchQuery.trim().toLowerCase();
 
@@ -1992,6 +2182,8 @@
             Subukan ang ibang pangalan o category.
           </div>
         `;
+        document.getElementById("characterSearchStatus").textContent =
+          "Walang tauhang tumutugma sa iyong paghahanap at filter.";
         return;
       }
 
@@ -2014,13 +2206,18 @@
             aria-label="Tingnan ang profile ni ${escapeHTML(character.name)}"
           >
             <div class="portrait">
-              <img
-                src="${escapeHTML(character.image)}"
-                alt="${escapeHTML(character.name)}"
-                loading="lazy"
-                width="100%"
-                height="100%"
-              >
+              <picture>
+                <source srcset="${escapeHTML(character.image.replace(/\\.jpg$/i, ".avif"))}" type="image/avif">
+                <source srcset="${escapeHTML(character.image.replace(/\\.jpg$/i, ".webp"))}" type="image/webp">
+                <img
+                  src="${escapeHTML(character.image)}"
+                  alt="${escapeHTML(character.name)}"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="1000"
+                >
+              </picture>
 
               <div class="char-info">
                 <small>${escapeHTML(character.role)}</small>
@@ -2032,15 +2229,18 @@
         `;
       }).join("");
 
+      document.getElementById("characterSearchStatus").textContent =
+        `${characters.length} ${characters.length === 1 ? "tauhan" : "tauhan"} ang tumutugma sa paghahanap at filter.`;
+
       characterGrid.querySelectorAll(".char-card").forEach(card => {
         card.addEventListener("click", () => {
-          openCharacterModal(card.dataset.characterId);
+          openCharacterModal(card.dataset.characterId, card);
         });
 
         card.addEventListener("keydown", event => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
-            openCharacterModal(card.dataset.characterId);
+            openCharacterModal(card.dataset.characterId, card);
           }
         });
       });
@@ -2059,16 +2259,18 @@
       state.activeFilter = chip.dataset.filter;
 
       filterChips.querySelectorAll(".filter-chip").forEach(button => {
-        button.classList.toggle(
-          "active",
-          button === chip
-        );
+        const isActive = button === chip;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
 
       renderCharacters();
     });
 
-    function openCharacterModal(characterId) {
+    // ===== Character Modal =====
+    let lastCharacterTrigger = null;
+
+    function openCharacterModal(characterId, trigger = null) {
       const character = state.characters.find(
         item => item.id === characterId
       );
@@ -2090,6 +2292,10 @@
     function closeCharacterModal() {
       characterModal.classList.remove("show");
       document.body.style.overflow = "";
+      if (lastCharacterTrigger) {
+        lastCharacterTrigger.focus();
+        lastCharacterTrigger = null;
+      }
     }
 
     modalClose.addEventListener("click", closeCharacterModal);
@@ -2102,11 +2308,28 @@
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") {
-        closeCharacterModal();
-        closeMobileMenu();
+        if (characterModal.classList.contains("show")) closeCharacterModal();
+        if (mobileDrawer.classList.contains("open")) closeMobileMenu();
+      }
+
+      if (event.key === "Tab" && characterModal.classList.contains("show")) {
+        const focusable = characterModal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
       }
     });
 
+    // ===== Quiz =====
     const quizQuestions = [
       {
         question: "Saan nakumpleto ni José Rizal ang Noli Me Tángere noong 1887?",
@@ -2409,6 +2632,7 @@
       renderQuiz();
     }
 
+    // ===== Form Validation =====
     function setFieldError(groupId, errorId, message) {
       const group = document.getElementById(groupId);
       const error = document.getElementById(errorId);
@@ -2526,6 +2750,18 @@
       );
     });
 
+    // ===== Back to Top =====
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("show", window.scrollY > 600);
+    }, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // ===== Image Fallback =====
     document.addEventListener("error", event => {
       const element = event.target;
 
@@ -2535,6 +2771,7 @@
 
     }, true);
 
+    // ===== Initialization =====
     renderCharacters();
     renderQuiz();
 
