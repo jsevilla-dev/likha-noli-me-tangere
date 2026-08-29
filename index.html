@@ -39,7 +39,6 @@
       scroll-behavior: smooth;
     }
 
-    /* ===== Global Styles & Accessibility ===== */
     :focus-visible {
       outline: 3px solid var(--yellow);
       outline-offset: 3px;
@@ -83,24 +82,10 @@
       overflow-x: hidden;
     }
 
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
     .container {
       width: min(var(--max-width), calc(100% - 40px));
@@ -146,7 +131,6 @@
       font-size: 1.08rem;
     }
 
-    /* ===== Navigation ===== */
     .navbar {
       position: fixed;
       inset: 0 0 auto;
@@ -167,12 +151,7 @@
       gap: 25px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      white-space: nowrap;
-    }
+    .brand { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
 
     .brand-mark {
       width: 42px;
@@ -186,16 +165,8 @@
       transform: rotate(-3deg);
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-text strong {
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-text strong { font-size: 1rem; letter-spacing: 0.08em; }
 
     .brand-text span {
       color: var(--muted);
@@ -206,11 +177,7 @@
       margin-top: 4px;
     }
 
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .desktop-nav { display: flex; align-items: center; gap: 4px; }
 
     .desktop-nav a {
       padding: 8px 10px;
@@ -220,11 +187,27 @@
       font-weight: 700;
       color: #263A5A;
       transition: 0.2s ease;
+      position: relative;
     }
 
     .desktop-nav a:hover {
       color: var(--red);
       background: rgba(21, 101, 192, 0.10);
+    }
+
+    .desktop-nav a.active {
+      color: var(--red);
+    }
+
+    .desktop-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 2px;
+      height: 2px;
+      background: var(--red);
+      border-radius: 2px;
     }
 
     .burger {
@@ -240,12 +223,19 @@
       gap: 5px;
     }
 
-    .burger span {
-      width: 19px;
-      height: 2px;
-      background: var(--ink);
-      transition: 0.2s;
+    .burger span { width: 19px; height: 2px; background: var(--ink); transition: 0.2s; }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: var(--nav-height) 0 0 0;
+      z-index: 998;
+      background: rgba(13, 25, 55, 0.35);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
     }
+
+    .drawer-backdrop.show { opacity: 1; visibility: visible; }
 
     .mobile-drawer {
       position: fixed;
@@ -261,9 +251,7 @@
       padding: 30px;
     }
 
-    .mobile-drawer.open {
-      transform: translateX(0);
-    }
+    .mobile-drawer.open { transform: translateX(0); }
 
     .mobile-drawer a {
       display: block;
@@ -272,7 +260,6 @@
       font-size: 1.05rem;
     }
 
-    /* ===== Hero ===== */
     .hero {
       min-height: 100vh;
       padding-top: calc(var(--nav-height) + 60px);
@@ -303,10 +290,7 @@
       align-items: center;
     }
 
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-    }
+    .hero-copy { position: relative; z-index: 2; }
 
     .hero-kicker {
       font-family: Arial, sans-serif;
@@ -325,10 +309,7 @@
       max-width: 850px;
     }
 
-    .hero-title em {
-      color: var(--red);
-      font-weight: normal;
-    }
+    .hero-title em { color: var(--red); font-weight: normal; font-style: normal; }
 
     .hero-subtitle {
       max-width: 680px;
@@ -337,11 +318,7 @@
       margin: 27px 0 30px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
     .btn {
       border: 1px solid transparent;
@@ -351,35 +328,15 @@
       font-size: 0.95rem;
       font-weight: 800;
       transition: 0.2s ease;
+      display: inline-block;
     }
 
-    .btn-primary {
-      background: var(--red);
-      color: white;
-    }
+    .btn-primary { background: var(--red); color: white; }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-secondary { background: transparent; border-color: var(--blue-border); color: var(--ink); }
+    .btn-secondary:hover { border-color: var(--red); color: var(--red); }
 
-    .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--blue-border);
-      color: var(--ink);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--red);
-      color: var(--red);
-    }
-
-    .cover-stage {
-      min-height: 590px;
-      display: grid;
-      place-items: center;
-      position: relative;
-    }
+    .cover-stage { min-height: 590px; display: grid; place-items: center; position: relative; }
 
     .cover-frame {
       width: min(360px, 80%);
@@ -392,14 +349,12 @@
       z-index: 2;
     }
 
-    .cover-frame picture,
-    .cover-frame img {
+    .cover-frame picture, .cover-frame img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
       object-position: center;
-      display: block;
     }
 
     .cover-frame::after {
@@ -416,19 +371,9 @@
       font-weight: 800;
     }
 
-    /* ===== History ===== */
-    .history {
-      background: var(--blue-dark);
-      color: #FFFFFF;
-    }
-
-    .history .section-label {
-      color: var(--yellow-light);
-    }
-
-    .history .section-label::before {
-      background: var(--yellow-light);
-    }
+    .history { background: var(--blue-dark); color: #FFFFFF; }
+    .history .section-label { color: var(--yellow-light); }
+    .history .section-label::before { background: var(--yellow-light); }
 
     .history-grid {
       display: grid;
@@ -444,17 +389,8 @@
       letter-spacing: -0.08em;
     }
 
-    .history-content h3 {
-      font-size: clamp(1.7rem, 3vw, 2.7rem);
-      line-height: 1.1;
-      margin-bottom: 25px;
-    }
-
-    .history-content p {
-      color: #DCE7F5;
-      margin-bottom: 17px;
-      max-width: 700px;
-    }
+    .history-content h3 { font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1.1; margin-bottom: 25px; }
+    .history-content p { color: #DCE7F5; margin-bottom: 17px; max-width: 700px; }
 
     .history-note {
       border-left: 2px solid var(--yellow);
@@ -464,7 +400,6 @@
       font-style: italic;
     }
 
-    /* ===== Summary / Timeline ===== */
     .summary-header {
       display: flex;
       justify-content: space-between;
@@ -473,11 +408,7 @@
       margin-bottom: 60px;
     }
 
-    .timeline {
-      position: relative;
-      max-width: 920px;
-      margin: auto;
-    }
+    .timeline { position: relative; max-width: 920px; margin: auto; }
 
     .timeline::before {
       content: "";
@@ -528,31 +459,14 @@
       text-transform: uppercase;
     }
 
-    .timeline-card h3 {
-      margin: 5px 0 8px;
-      font-size: 1.5rem;
-    }
+    .timeline-card h3 { margin: 5px 0 8px; font-size: 1.5rem; }
+    .timeline-card p { color: var(--muted); }
 
-    .timeline-card p {
-      color: var(--muted);
-    }
+    .characters { background: var(--blue-pale); }
 
-    /* ===== Characters ===== */
-    .characters {
-      background: var(--blue-pale);
-    }
+    .character-tools { display: flex; flex-wrap: wrap; gap: 12px; margin: 38px 0; }
 
-    .character-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 38px 0;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1 1 280px;
-    }
+    .search-box { position: relative; flex: 1 1 280px; }
 
     .search-box input {
       width: 100%;
@@ -565,15 +479,9 @@
       color: var(--ink);
     }
 
-    .search-box input:focus-visible {
-      border-color: var(--red);
-    }
+    .search-box input:focus-visible { border-color: var(--red); }
 
-    .filter-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
+    .filter-chips { display: flex; flex-wrap: wrap; gap: 7px; }
 
     .filter-chip {
       height: 48px;
@@ -588,8 +496,7 @@
       transition: 0.2s ease;
     }
 
-    .filter-chip:hover,
-    .filter-chip.active {
+    .filter-chip:hover, .filter-chip.active {
       background: var(--red);
       border-color: var(--red);
       color: white;
@@ -618,25 +525,11 @@
       cursor: pointer;
     }
 
-    .char-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
+    .char-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 
-    .char-card.large {
-      grid-column: span 6;
-      grid-row: span 2;
-    }
-
-    .char-card.medium {
-      grid-column: span 3;
-      grid-row: span 1;
-    }
-
-    .char-card.wide {
-      grid-column: span 6;
-      grid-row: span 1;
-    }
+    .char-card.large { grid-column: span 6; grid-row: span 2; }
+    .char-card.medium { grid-column: span 3; grid-row: span 1; }
+    .char-card.wide { grid-column: span 6; grid-row: span 1; }
 
     .portrait {
       position: relative;
@@ -648,24 +541,18 @@
       background: #E3ECFA;
     }
 
-    .char-card.large .portrait {
-      min-height: 100%;
-    }
+    .char-card.large .portrait { min-height: 100%; }
 
-    .portrait picture,
-    .portrait img {
+    .portrait picture, .portrait img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
       object-position: center top;
-      display: block;
       transition: transform 0.45s ease;
     }
 
-    .char-card:hover .portrait img {
-      transform: scale(1.035);
-    }
+    .char-card:hover .portrait img { transform: scale(1.035); }
 
     .portrait::after {
       content: "";
@@ -680,15 +567,7 @@
       pointer-events: none;
     }
 
-    .char-info {
-      position: absolute;
-      z-index: 3;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 25px;
-      color: white;
-    }
+    .char-info { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; padding: 25px; color: white; }
 
     .char-info small {
       font-family: Arial, sans-serif;
@@ -699,17 +578,8 @@
       color: #FBC02D;
     }
 
-    .char-info h3 {
-      font-size: 1.35rem;
-      line-height: 1.05;
-      margin: 5px 0;
-    }
-
-    .char-info p {
-      font-family: Arial, sans-serif;
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
+    .char-info h3 { font-size: 1.35rem; line-height: 1.05; margin: 5px 0; }
+    .char-info p { font-family: Arial, sans-serif; font-size: 0.95rem; opacity: 0.8; }
 
     .char-empty {
       grid-column: 1 / -1;
@@ -721,7 +591,6 @@
       border-radius: var(--radius);
     }
 
-    /* ===== Character Modal ===== */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -734,9 +603,7 @@
       padding: 20px;
     }
 
-    .modal-overlay.show {
-      display: flex;
-    }
+    .modal-overlay.show { display: flex; }
 
     .modal {
       width: min(800px, 100%);
@@ -750,14 +617,8 @@
     }
 
     @keyframes modalIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      from { opacity: 0; transform: translateY(15px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .modal-close {
@@ -774,15 +635,8 @@
       line-height: 1;
     }
 
-    .modal-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-    }
-
-    .modal-image {
-      min-height: 480px;
-      background: #E3ECFA;
-    }
+    .modal-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; }
+    .modal-image { min-height: 480px; background: #E3ECFA; }
 
     .modal-image img {
       width: 100%;
@@ -792,9 +646,7 @@
       display: block;
     }
 
-    .modal-body {
-      padding: 48px 40px;
-    }
+    .modal-body { padding: 48px 40px; }
 
     .modal-role {
       font-family: Arial, sans-serif;
@@ -805,17 +657,9 @@
       letter-spacing: 0.12em;
     }
 
-    .modal-body h2 {
-      font-size: 2.7rem;
-      line-height: 1;
-      margin: 10px 0 20px;
-    }
+    .modal-body h2 { font-size: 2.7rem; line-height: 1; margin: 10px 0 20px; }
+    .modal-body p { color: var(--muted); }
 
-    .modal-body p {
-      color: var(--muted);
-    }
-
-    /* ===== Themes ===== */
     .themes-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -835,42 +679,14 @@
       transition: 0.25s ease;
     }
 
-    .theme-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
+    .theme-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .theme-number { font-family: Arial, sans-serif; font-weight: 900; color: var(--yellow); font-size: 0.84rem; }
+    .theme-card h3 { font-size: 2rem; line-height: 1; margin-top: 45px; }
+    .theme-card p { color: var(--muted); margin-top: 15px; }
 
-    .theme-number {
-      font-family: Arial, sans-serif;
-      font-weight: 900;
-      color: var(--yellow);
-      font-size: 0.84rem;
-    }
-
-    .theme-card h3 {
-      font-size: 2rem;
-      line-height: 1;
-      margin-top: 45px;
-    }
-
-    .theme-card p {
-      color: var(--muted);
-      margin-top: 15px;
-    }
-
-    /* ===== Legacy ===== */
-    .legacy {
-      background: var(--red);
-      color: white;
-    }
-
-    .legacy .section-label {
-      color: #FFF176;
-    }
-
-    .legacy .section-label::before {
-      background: #FFF176;
-    }
+    .legacy { background: var(--red); color: white; }
+    .legacy .section-label { color: #FFF176; }
+    .legacy .section-label::before { background: #FFF176; }
 
     .legacy-grid {
       display: grid;
@@ -887,17 +703,8 @@
       letter-spacing: -0.07em;
     }
 
-    .legacy h2 {
-      font-size: clamp(2.3rem, 5vw, 4.8rem);
-      line-height: 0.98;
-      margin-bottom: 25px;
-    }
-
-    .legacy p {
-      color: #FCE4E4;
-      max-width: 750px;
-      margin-bottom: 15px;
-    }
+    .legacy h2 { font-size: clamp(2.3rem, 5vw, 4.8rem); line-height: 0.98; margin-bottom: 25px; }
+    .legacy p { color: #FCE4E4; max-width: 750px; margin-bottom: 15px; }
 
     .law-note {
       margin-top: 30px;
@@ -909,10 +716,7 @@
       color: #FFF9C4;
     }
 
-    /* ===== Quiz ===== */
-    .quiz-section {
-      background: var(--paper);
-    }
+    .quiz-section { background: var(--paper); }
 
     .quiz-shell {
       width: min(850px, 100%);
@@ -923,12 +727,7 @@
       padding: clamp(25px, 5vw, 55px);
     }
 
-    .quiz-progress {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 40px;
-    }
+    .quiz-progress { display: flex; align-items: center; gap: 8px; margin-bottom: 40px; }
 
     .progress-dot {
       height: 7px;
@@ -938,13 +737,8 @@
       transition: 0.25s ease;
     }
 
-    .progress-dot.active {
-      background: var(--red);
-    }
-
-    .progress-dot.done {
-      background: var(--yellow);
-    }
+    .progress-dot.active { background: var(--red); }
+    .progress-dot.done { background: var(--yellow); }
 
     .quiz-meta {
       display: flex;
@@ -958,16 +752,8 @@
       margin-bottom: 12px;
     }
 
-    .quiz-question {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.05;
-      margin-bottom: 28px;
-    }
-
-    .answers {
-      display: grid;
-      gap: 10px;
-    }
+    .quiz-question { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; margin-bottom: 28px; }
+    .answers { display: grid; gap: 10px; }
 
     .answer-btn {
       text-align: left;
@@ -979,24 +765,10 @@
       transition: 0.2s ease;
     }
 
-    .answer-btn:hover:not(:disabled) {
-      border-color: var(--red);
-      transform: translateX(3px);
-    }
-
-    .answer-btn.correct {
-      border-color: var(--blue);
-      background: var(--blue-soft);
-    }
-
-    .answer-btn.wrong {
-      border-color: #C62828;
-      background: var(--red-soft);
-    }
-
-    .answer-btn:disabled {
-      cursor: default;
-    }
+    .answer-btn:hover:not(:disabled) { border-color: var(--red); transform: translateX(3px); }
+    .answer-btn.correct { border-color: var(--blue); background: var(--blue-soft); }
+    .answer-btn.wrong { border-color: #C62828; background: var(--red-soft); }
+    .answer-btn:disabled { cursor: default; }
 
     .quiz-feedback {
       min-height: 28px;
@@ -1006,24 +778,10 @@
       font-weight: 700;
     }
 
-    .quiz-feedback.correct {
-      color: var(--blue);
-    }
-
-    .quiz-feedback.wrong {
-      color: var(--red);
-    }
-
-    .quiz-actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 20px;
-    }
-
-    .quiz-result {
-      text-align: center;
-      padding: 25px 0;
-    }
+    .quiz-feedback.correct { color: var(--blue); }
+    .quiz-feedback.wrong { color: var(--red); }
+    .quiz-actions { display: flex; justify-content: flex-end; margin-top: 20px; }
+    .quiz-result { text-align: center; padding: 25px 0; }
 
     .score-circle {
       width: 150px;
@@ -1037,12 +795,7 @@
       color: var(--red);
     }
 
-    .review-list {
-      text-align: left;
-      margin-top: 35px;
-      display: grid;
-      gap: 10px;
-    }
+    .review-list { text-align: left; margin-top: 35px; display: grid; gap: 10px; }
 
     .review-item {
       padding: 15px;
@@ -1053,7 +806,9 @@
       font-size: 0.9rem;
     }
 
-    /* ===== Contact / Feedback ===== */
+    .review-item.wrong { border-left: 3px solid var(--red); }
+    .review-item.right { border-left: 3px solid var(--blue); }
+
     .contact-grid {
       display: grid;
       grid-template-columns: 0.75fr 1.25fr;
@@ -1061,16 +816,8 @@
       align-items: start;
     }
 
-    .contact-info h2 {
-      font-size: clamp(2.5rem, 5vw, 5rem);
-      line-height: 0.95;
-      margin-bottom: 20px;
-    }
-
-    .contact-info p {
-      color: var(--muted);
-      max-width: 450px;
-    }
+    .contact-info h2 { font-size: clamp(2.5rem, 5vw, 5rem); line-height: 0.95; margin-bottom: 20px; }
+    .contact-info p { color: var(--muted); max-width: 450px; }
 
     .contact-form {
       background: var(--paper);
@@ -1079,9 +826,7 @@
       border-radius: var(--radius);
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+    .form-group { margin-bottom: 20px; }
 
     .form-group label {
       display: block;
@@ -1091,8 +836,7 @@
       margin-bottom: 7px;
     }
 
-    .form-group input,
-    .form-group textarea {
+    .form-group input, .form-group textarea {
       display: block;
       width: 100%;
       border: 1px solid var(--blue-border);
@@ -1103,15 +847,9 @@
       color: var(--ink);
     }
 
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
+    .form-group textarea { min-height: 150px; resize: vertical; }
 
-    .form-group input:focus-visible,
-    .form-group textarea:focus-visible {
-      border-color: var(--red);
-    }
+    .form-group input:focus-visible, .form-group textarea:focus-visible { border-color: var(--red); }
 
     .field-error {
       min-height: 18px;
@@ -1121,9 +859,14 @@
       margin-top: 4px;
     }
 
-    .form-group.invalid input,
-    .form-group.invalid textarea {
-      border-color: var(--red);
+    .form-group.invalid input, .form-group.invalid textarea { border-color: var(--red); }
+
+    .char-count {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 4px;
     }
 
     .toast {
@@ -1145,28 +888,11 @@
       transition: 0.25s ease;
     }
 
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    .toast.show { transform: translateY(0); opacity: 1; }
 
-    /* ===== Footer & References ===== */
-    footer {
-      background: #061B3A;
-      color: #DCE7F5;
-      padding: 55px 0;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-brand {
-      font-size: 1.7rem;
-      color: white;
-    }
+    footer { background: #061B3A; color: #DCE7F5; padding: 55px 0; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-brand { font-size: 1.7rem; color: white; }
 
     .footer-section-title {
       margin-top: 20px;
@@ -1178,11 +904,7 @@
       text-transform: uppercase;
     }
 
-    .footer-tagline {
-      color: #AFC3DF;
-      max-width: 450px;
-      margin-top: 10px;
-    }
+    .footer-tagline { color: #AFC3DF; max-width: 450px; margin-top: 10px; }
 
     .credits {
       justify-self: end;
@@ -1193,25 +915,11 @@
       color: #B9CBE2;
     }
 
-    .credits strong {
-      color: white;
-    }
+    .credits strong { color: white; }
 
-
-    .references {
-      margin-top: 42px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .references .section-label {
-      color: var(--yellow-light);
-      margin-bottom: 8px;
-    }
-
-    .references .section-label::before {
-      background: var(--yellow-light);
-    }
+    .references { margin-top: 42px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+    .references .section-label { color: var(--yellow-light); margin-bottom: 8px; }
+    .references .section-label::before { background: var(--yellow-light); }
 
     .references h2 {
       color: #FFFFFF;
@@ -1220,17 +928,8 @@
       margin-bottom: 16px;
     }
 
-    .reference-list {
-      margin: 0;
-      padding-left: 24px;
-      max-width: 850px;
-      color: #DCE7F5;
-    }
-
-    .reference-list li {
-      padding-left: 6px;
-      line-height: 1.7;
-    }
+    .reference-list { margin: 0; padding-left: 24px; max-width: 850px; color: #DCE7F5; }
+    .reference-list li { padding-left: 6px; line-height: 1.7; }
 
     .reference-list a {
       color: var(--yellow-light);
@@ -1238,10 +937,7 @@
       text-underline-offset: 3px;
     }
 
-    .reference-list a:hover,
-    .reference-list a:focus-visible {
-      color: #FFFFFF;
-    }
+    .reference-list a:hover, .reference-list a:focus-visible { color: #FFFFFF; }
 
     .copyright {
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -1252,7 +948,6 @@
       color: #7A8BA5;
     }
 
-    /* ===== Back to Top ===== */
     .back-to-top {
       position: fixed;
       right: 22px;
@@ -1273,163 +968,51 @@
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     }
 
-    .back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    /* ===== Responsive Layout ===== */
     @media (max-width: 1050px) {
-      .desktop-nav {
-        display: none;
-      }
-
-      .burger {
-        display: flex;
-      }
-
-      .hero-grid,
-      .history-grid,
-      .legacy-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        max-width: 850px;
-      }
-
-      .cover-stage {
-        min-height: 500px;
-      }
-
-      .history-big-year,
-      .law-number {
-        font-size: 7rem;
-      }
-
-      .themes-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .theme-card {
-        min-height: 230px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .credits {
-        justify-self: start;
-        text-align: left;
-      }
+      .desktop-nav { display: none; }
+      .burger { display: flex; }
+      .hero-grid, .history-grid, .legacy-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 850px; }
+      .cover-stage { min-height: 500px; }
+      .history-big-year, .law-number { font-size: 7rem; }
+      .themes-grid { grid-template-columns: 1fr; }
+      .theme-card { min-height: 230px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .credits { justify-self: start; text-align: left; }
     }
 
     @media (max-width: 760px) {
-      .container {
-        width: min(100% - 28px, var(--max-width));
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .hero {
-        padding-top: calc(var(--nav-height) + 30px);
-      }
-
-      .hero-title {
-        font-size: clamp(3rem, 15vw, 5rem);
-      }
-
-      .cover-frame {
-        width: min(290px, 78%);
-      }
-
-      .character-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 300px;
-      }
-
-      .char-card.large,
-      .char-card.medium,
-      .char-card.wide {
-        grid-column: span 1;
-        grid-row: span 1;
-      }
-
-      .char-card.large {
-        grid-column: span 2;
-      }
-
-      .modal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-image {
-        height: 330px;
-        min-height: 330px;
-      }
-
-      .modal-body {
-        padding: 30px 25px;
-      }
-
-      .modal-body h2 {
-        font-size: 2.2rem;
-      }
-
-      .summary-header {
-        display: block;
-      }
-
-      .quiz-shell {
-        padding: 25px 18px;
-      }
-
-      .contact-form {
-        padding: 23px;
-      }
+      .container { width: min(100% - 28px, var(--max-width)); }
+      .section { padding: 75px 0; }
+      .hero { padding-top: calc(var(--nav-height) + 30px); }
+      .hero-title { font-size: clamp(3rem, 15vw, 5rem); }
+      .cover-frame { width: min(290px, 78%); }
+      .character-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 300px; }
+      .char-card.large, .char-card.medium, .char-card.wide { grid-column: span 1; grid-row: span 1; }
+      .char-card.large { grid-column: span 2; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-image { height: 330px; min-height: 330px; }
+      .modal-body { padding: 30px 25px; }
+      .modal-body h2 { font-size: 2.2rem; }
+      .summary-header { display: block; }
+      .quiz-shell { padding: 25px 18px; }
+      .contact-form { padding: 23px; }
     }
 
     @media (max-width: 480px) {
-      .brand-text span {
-        display: none;
-      }
-
-      .character-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 330px;
-      }
-
-      .char-card.large {
-        grid-column: span 1;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .filter-chips {
-        width: 100%;
-      }
-
-      .filter-chip {
-        flex: 1;
-      }
+      .brand-text span { display: none; }
+      .character-grid { grid-template-columns: 1fr; grid-auto-rows: 330px; }
+      .char-card.large { grid-column: span 1; }
+      .hero-actions .btn { width: 100%; text-align: center; }
+      .filter-chips { width: 100%; }
+      .filter-chip { flex: 1; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
@@ -1439,7 +1022,8 @@
 
 <body>
 
-  <!-- ===== Site Header & Navigation ===== -->
+  <a class="skip-link" href="#main-content">Lumaktaw sa nilalaman</a>
+
   <header class="navbar">
     <div class="nav-inner">
       <a href="#home" class="brand" aria-label="LIKHA home">
@@ -1450,23 +1034,25 @@
         </div>
       </a>
 
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#kasaysayan">Kasaysayan</a>
-        <a href="#buod">Buod</a>
-        <a href="#tauhan">Mga Tauhan</a>
-        <a href="#tema">Mga Tema</a>
-        <a href="#pamana">Pamana</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#kontak">Kontak</a>
+      <nav class="desktop-nav" aria-label="Main navigation" id="desktopNav">
+        <a href="#kasaysayan" data-nav>Kasaysayan</a>
+        <a href="#buod" data-nav>Buod</a>
+        <a href="#tauhan" data-nav>Mga Tauhan</a>
+        <a href="#tema" data-nav>Mga Tema</a>
+        <a href="#pamana" data-nav>Pamana</a>
+        <a href="#quiz" data-nav>Quiz</a>
+        <a href="#kontak" data-nav>Kontak</a>
       </nav>
 
-      <button class="burger" id="burgerBtn" aria-label="Buksan ang menu" aria-expanded="false">
+      <button class="burger" id="burgerBtn" aria-label="Buksan ang menu" aria-controls="mobileDrawer" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
   </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
     <a href="#kasaysayan">Kasaysayan</a>
@@ -1478,7 +1064,6 @@
     <a href="#kontak">Kontak</a>
   </aside>
 
-  <!-- ===== Main Content ===== -->
   <main id="main-content">
 
     <section class="hero" id="home">
@@ -1509,11 +1094,13 @@
           <div class="cover-frame">
             <picture>
               <img
-                src="./noli-cover.jpg"
+                src="./images/noli-cover.jpg"
                 alt="Orihinal na pabalat ng Noli Me Tángere"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
+                width="360"
+                height="529"
               >
             </picture>
           </div>
@@ -1806,9 +1393,7 @@
           at tingnan ang iyong final score.
         </p>
 
-        <div class="quiz-shell" id="quizShell">
-
-        </div>
+        <div class="quiz-shell" id="quizShell"></div>
 
       </div>
     </section>
@@ -1841,8 +1426,9 @@
               name="name"
               autocomplete="name"
               placeholder="Iyong pangalan"
+              required
             >
-            <div class="field-error" id="nameError"></div>
+            <div class="field-error" id="nameError" role="alert"></div>
           </div>
 
           <div class="form-group" id="emailGroup">
@@ -1853,8 +1439,9 @@
               name="email"
               autocomplete="email"
               placeholder="halimbawa@email.com"
+              required
             >
-            <div class="field-error" id="emailError"></div>
+            <div class="field-error" id="emailError" role="alert"></div>
           </div>
 
           <div class="form-group" id="messageGroup">
@@ -1863,8 +1450,11 @@
               id="message"
               name="message"
               placeholder="Isulat ang iyong mensahe..."
+              maxlength="500"
+              required
             ></textarea>
-            <div class="field-error" id="messageError"></div>
+            <div class="char-count" id="messageCount" aria-hidden="true">0 / 500</div>
+            <div class="field-error" id="messageError" role="alert"></div>
           </div>
 
           <button type="submit" class="btn btn-primary">
@@ -1878,7 +1468,6 @@
 
   </main>
 
-  <!-- ===== Character Details Modal ===== -->
   <div
     class="modal-overlay"
     id="characterModal"
@@ -1890,18 +1479,14 @@
   >
     <div class="modal">
 
-      <button
-        class="modal-close"
-        id="modalClose"
-        aria-label="Isara"
-      >
+      <button class="modal-close" id="modalClose" aria-label="Isara">
         ×
       </button>
 
       <div class="modal-grid">
 
         <div class="modal-image">
-          <img id="modalCharacterImage" src="" alt="">
+          <img id="modalCharacterImage" src="" alt="" width="800" height="1000">
         </div>
 
         <div class="modal-body">
@@ -1914,16 +1499,10 @@
     </div>
   </div>
 
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-  ></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <button class="back-to-top" id="backToTop" type="button" aria-label="Bumalik sa itaas" title="Bumalik sa itaas">↑</button>
 
-  <!-- ===== Site Footer ===== -->
   <footer>
     <div class="container">
 
@@ -1958,7 +1537,6 @@
 
       </div>
 
-      <!-- ===== References / Sanggunian ===== -->
       <section class="references" aria-labelledby="references-title">
         <div class="section-label">Sanggunian</div>
         <h2 id="references-title">References</h2>
@@ -1993,11 +1571,9 @@
     </div>
   </footer>
 
-  <!-- ===== Interactive Features ===== -->
   <script>
     "use strict";
 
-    // ===== State =====
     const state = {
       characters: [
         {
@@ -2005,15 +1581,15 @@
           name: "Crisóstomo Ibarra",
           role: "Protagonista",
           tags: ["protagonista"],
-          image: "./ibarra.jpg",
+          image: "./images/ibarra.jpg",
           bio: "Ang mestisong anak ni Don Rafael Ibarra. Pagkatapos ng pitong taong pag-aaral sa Europa, bumalik siya sa San Diego na may pangarap na itayo ang isang paaralan para sa kanyang bayan."
         },
         {
           id: "maria",
           name: "María Clara",
           role: "Kasintahan ni Ibarra",
-          tags: ["pamilya","protagonista"],
-          image: "./maria-clara.jpg",
+          tags: ["pamilya", "protagonista"],
+          image: "./images/maria-clara.jpg",
           bio: "Ang pinakamagandang dalaga sa San Diego at kasintahan ni Ibarra. Sa huli, nalaman niyang si Padre Dámaso ang tunay niyang ama, at nagdesisyon siyang pumasok sa kumbento."
         },
         {
@@ -2021,7 +1597,7 @@
           name: "Padre Dámaso",
           role: "Prayleng Prangsiskano",
           tags: ["simbahan"],
-          image: "./padre-damaso.jpg",
+          image: "./images/padre-damaso.jpg",
           bio: "Dating kura paroko ng San Diego, kilala sa kanyang kabastusan at kalupitan. Ibinunyag sa huli na siya ang tunay na ama ni María Clara."
         },
         {
@@ -2029,7 +1605,7 @@
           name: "Padre Bernardo Salví",
           role: "Prayleng Pransiskano",
           tags: ["simbahan"],
-          image: "./padre-salvi.jpg",
+          image: "./images/padre-salvi.jpg",
           bio: "Ang humalili kay Padre Dámaso bilang kura paroko ng San Diego. Lihim na nagkakagusto kay María Clara at may mahalagang papel sa mga pangyayaring nagdulot ng pagbagsak ni Ibarra."
         },
         {
@@ -2037,7 +1613,7 @@
           name: "Elías",
           role: "Misteryosong Kaibigan",
           tags: ["protagonista"],
-          image: "./elias.jpg",
+          image: "./images/elias.jpg",
           bio: "Isang bangkero/pilotong nakilala ni Ibarra at naging mahalagang kaalyado niya. Nagmula siya sa pamilyang winasak ng kawalang-katarungan at tumulong kay Ibarra sa mga mapanganib na sandali."
         },
         {
@@ -2045,7 +1621,7 @@
           name: "Kapitán Tiago",
           role: "Mayamang Negosyante",
           tags: ["pamilya"],
-          image: "./kapitan-tiago.jpg",
+          image: "./images/kapitan-tiago.jpg",
           bio: "Mayamang negosyante at kinikilalang ama ni María Clara. Dahil sa kanyang kayamanan at pakikibagay sa kolonyal na lipunan, malapit siya sa mga makapangyarihang tao ng Maynila at San Diego."
         },
         {
@@ -2053,7 +1629,7 @@
           name: "Sisa",
           role: "Ina nina Basilio at Crispín",
           tags: ["pamilya"],
-          image: "./sisa.jpg",
+          image: "./images/sisa.jpg",
           bio: "Isang magandang inang nabaliw dahil sa pambubugbog ng asawa, kamatayan ng anak na si Crispín, at pagkawala ng anak na si Basilio sa Guardia Civil."
         },
         {
@@ -2061,7 +1637,7 @@
           name: "Pilosopo Tasio",
           role: "Tagapayo",
           tags: ["protagonista"],
-          image: "./pilosopo-tasio.jpg",
+          image: "./images/pilosopo-tasio.jpg",
           bio: "Kilala rin bilang Don Anastasio, isang dating mag-aaral ng pilosopiya na tumatalakay sa mga ideya tungkol sa lipunan at pamahalaan. Ang kanyang mga sulatin ay gumagamit ng isang di-karaniwang alpabeto na mahirap unawain ng iba."
         },
         {
@@ -2069,7 +1645,7 @@
           name: "Doña Victorina",
           role: "Nagpapanggap na Espanyola",
           tags: ["pamilya"],
-          image: "./dona-victorina.jpg",
+          image: "./images/dona-victorina.jpg",
           bio: "Isang ambisyosang Pilipina na nagpapanggap na Kastila. Asawa niya si Don Tiburcio de Espadaña, isang huwad na doktor."
         }
       ],
@@ -2086,7 +1662,6 @@
       }
     };
 
-    // ===== DOM References =====
     const characterGrid = document.getElementById("characterGrid");
     const characterSearch = document.getElementById("characterSearch");
     const filterChips = document.getElementById("filterChips");
@@ -2099,11 +1674,11 @@
     const modalCharacterBio = document.getElementById("modalCharacterBio");
 
     const quizShell = document.getElementById("quizShell");
-
     const feedbackForm = document.getElementById("feedbackForm");
 
     const burgerBtn = document.getElementById("burgerBtn");
     const mobileDrawer = document.getElementById("mobileDrawer");
+    const drawerBackdrop = document.getElementById("drawerBackdrop");
     mobileDrawer.inert = true;
 
     const toast = document.getElementById("toast");
@@ -2111,9 +1686,7 @@
     function showToast(message) {
       toast.textContent = message;
       toast.classList.add("show");
-
       clearTimeout(showToast.timeout);
-
       showToast.timeout = setTimeout(() => {
         toast.classList.remove("show");
       }, 3200);
@@ -2128,22 +1701,66 @@
         .replaceAll("'", "&#039;");
     }
 
+    function debounce(fn, wait) {
+      let timeoutId;
+      return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), wait);
+      };
+    }
+
     // ===== Mobile Navigation =====
+    function openMobileMenu() {
+      mobileDrawer.classList.add("open");
+      drawerBackdrop.classList.add("show");
+      burgerBtn.setAttribute("aria-expanded", "true");
+      mobileDrawer.setAttribute("aria-hidden", "false");
+      mobileDrawer.inert = false;
+    }
+
     function closeMobileMenu() {
       mobileDrawer.classList.remove("open");
+      drawerBackdrop.classList.remove("show");
       burgerBtn.setAttribute("aria-expanded", "false");
       mobileDrawer.setAttribute("aria-hidden", "true");
       mobileDrawer.inert = true;
     }
 
     burgerBtn.addEventListener("click", () => {
-      const isOpen = mobileDrawer.classList.toggle("open");
-      burgerBtn.setAttribute("aria-expanded", String(isOpen));
+      const isOpen = mobileDrawer.classList.contains("open");
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
+
+    drawerBackdrop.addEventListener("click", closeMobileMenu);
 
     mobileDrawer.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", closeMobileMenu);
     });
+
+    // ===== Scrollspy for active nav link =====
+    const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
+    const spySections = navLinks
+      .map(link => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const spyObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const link = navLinks.find(
+          candidate => candidate.getAttribute("href") === `#${entry.target.id}`
+        );
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+    spySections.forEach(section => spyObserver.observe(section));
 
     // ===== Character Search & Filters =====
     function getFilteredCharacters() {
@@ -2161,8 +1778,7 @@
           ...character.tags
         ].join(" ").toLowerCase();
 
-        const matchesSearch =
-          search === "" || searchableText.includes(search);
+        const matchesSearch = search === "" || searchableText.includes(search);
 
         return matchesFilter && matchesSearch;
       });
@@ -2185,7 +1801,6 @@
       }
 
       characterGrid.innerHTML = characters.map((character, index) => {
-
         let sizeClass = "medium";
 
         if (index === 0) {
@@ -2225,7 +1840,7 @@
       }).join("");
 
       document.getElementById("characterSearchStatus").textContent =
-        `${characters.length} ${characters.length === 1 ? "tauhan" : "tauhan"} ang tumutugma sa paghahanap at filter.`;
+        `${characters.length} tauhan ang tumutugma sa paghahanap at filter.`;
 
       characterGrid.querySelectorAll(".char-card").forEach(card => {
         card.addEventListener("click", () => {
@@ -2241,14 +1856,13 @@
       });
     }
 
-    characterSearch.addEventListener("input", event => {
+    characterSearch.addEventListener("input", debounce(event => {
       state.searchQuery = event.target.value;
       renderCharacters();
-    });
+    }, 150));
 
     filterChips.addEventListener("click", event => {
       const chip = event.target.closest(".filter-chip");
-
       if (!chip) return;
 
       state.activeFilter = chip.dataset.filter;
@@ -2266,11 +1880,10 @@
     let lastCharacterTrigger = null;
 
     function openCharacterModal(characterId, trigger = null) {
-      const character = state.characters.find(
-        item => item.id === characterId
-      );
-
+      const character = state.characters.find(item => item.id === characterId);
       if (!character) return;
+
+      lastCharacterTrigger = trigger || document.activeElement;
 
       modalCharacterImage.src = character.image;
       modalCharacterImage.alt = character.name;
@@ -2328,75 +1941,39 @@
     const quizQuestions = [
       {
         question: "Saan nakumpleto ni José Rizal ang Noli Me Tángere noong 1887?",
-        choices: [
-          "Berlin",
-          "Madrid",
-          "Paris",
-          "Manila"
-        ],
+        choices: ["Berlin", "Madrid", "Paris", "Manila"],
         answer: 0,
-        explanation:
-          "Nakumpleto ni Rizal ang nobela sa Berlin noong 1887."
+        explanation: "Nakumpleto ni Rizal ang nobela sa Berlin noong 1887."
       },
       {
         question: "Sino ang pangunahing tauhang nagbalik mula sa Europa?",
-        choices: [
-          "Elías",
-          "Crisóstomo Ibarra",
-          "Kapitán Tiago",
-          "Pilosopo Tasio"
-        ],
+        choices: ["Elías", "Crisóstomo Ibarra", "Kapitán Tiago", "Pilosopo Tasio"],
         answer: 1,
-        explanation:
-          "Si Crisóstomo Ibarra ang pangunahing tauhang bumalik mula sa Europa."
+        explanation: "Si Crisóstomo Ibarra ang pangunahing tauhang bumalik mula sa Europa."
       },
       {
         question: "Sino ang kasintahan ni Ibarra?",
-        choices: [
-          "Sisa",
-          "Doña Victorina",
-          "María Clara",
-          "Doña Consolación"
-        ],
+        choices: ["Sisa", "Doña Victorina", "María Clara", "Doña Consolación"],
         answer: 2,
-        explanation:
-          "Si María Clara ang kasintahan ni Crisóstomo Ibarra."
+        explanation: "Si María Clara ang kasintahan ni Crisóstomo Ibarra."
       },
       {
         question: "Ano ang nais itayo ni Ibarra para sa bayan?",
-        choices: [
-          "Isang ospital",
-          "Isang simbahan",
-          "Isang palengke",
-          "Isang paaralan"
-        ],
+        choices: ["Isang ospital", "Isang simbahan", "Isang palengke", "Isang paaralan"],
         answer: 3,
-        explanation:
-          "Pangarap ni Ibarra na magtayo ng paaralan."
+        explanation: "Pangarap ni Ibarra na magtayo ng paaralan."
       },
       {
         question: "Ano ang Republic Act No. 1425 na karaniwang tawag?",
-        choices: [
-          "Education Act",
-          "Rizal Law",
-          "Noli Act",
-          "Philippine Literature Act"
-        ],
+        choices: ["Education Act", "Rizal Law", "Noli Act", "Philippine Literature Act"],
         answer: 1,
-        explanation:
-          "Ang Republic Act No. 1425 ay kilala bilang Rizal Law."
+        explanation: "Ang Republic Act No. 1425 ay kilala bilang Rizal Law."
       },
       {
         question: "Ano ang kahulugan ng pamagat na Noli Me Tángere?",
-        choices: [
-          "Mahal Kita",
-          "Huwag Mo Akong Salingin",
-          "Ako ang Iyong Bayan",
-          "Bumalik Ka sa Bayan"
-        ],
+        choices: ["Mahal Kita", "Huwag Mo Akong Salingin", "Ako ang Iyong Bayan", "Bumalik Ka sa Bayan"],
         answer: 1,
-        explanation:
-          "Ang Latin na pamagat ay karaniwang isinasalin bilang “Huwag Mo Akong Salingin.”"
+        explanation: "Ang Latin na pamagat ay karaniwang isinasalin bilang “Huwag Mo Akong Salingin.”"
       }
     ];
 
@@ -2412,51 +1989,33 @@
 
       const dots = quizQuestions.map((_, index) => {
         let className = "progress-dot";
-
-        if (index < quizState.currentQuestion) {
-          className += " done";
-        }
-
-        if (index === quizState.currentQuestion) {
-          className += " active";
-        }
-
+        if (index < quizState.currentQuestion) className += " done";
+        if (index === quizState.currentQuestion) className += " active";
         return `<span class="${className}"></span>`;
       }).join("");
 
       quizShell.innerHTML = `
-        <div class="quiz-progress">
-          ${dots}
-        </div>
+        <div class="quiz-progress">${dots}</div>
 
         <div class="quiz-meta">
           <span>Tanong ${quizState.currentQuestion + 1}</span>
           <span>${quizQuestions.length} Kabuuan</span>
         </div>
 
-        <h3 class="quiz-question">
-          ${escapeHTML(question.question)}
-        </h3>
+        <h3 class="quiz-question">${escapeHTML(question.question)}</h3>
 
         <div class="answers">
           ${question.choices.map((choice, index) => `
-            <button
-              class="answer-btn"
-              data-answer="${index}"
-            >
+            <button class="answer-btn" data-answer="${index}">
               ${escapeHTML(choice)}
             </button>
           `).join("")}
         </div>
 
-        <div class="quiz-feedback" id="quizFeedback"></div>
+        <div class="quiz-feedback" id="quizFeedback" role="status"></div>
 
         <div class="quiz-actions">
-          <button
-            class="btn btn-primary"
-            id="nextQuestion"
-            style="display:none;"
-          >
+          <button class="btn btn-primary" id="nextQuestion" style="display:none;">
             ${quizState.currentQuestion === quizQuestions.length - 1
               ? "Tingnan ang Resulta"
               : "Susunod na Tanong"}
@@ -2470,14 +2029,11 @@
         });
       });
 
-      document
-        .getElementById("nextQuestion")
-        .addEventListener("click", nextQuizQuestion);
+      document.getElementById("nextQuestion").addEventListener("click", nextQuizQuestion);
     }
 
     function answerQuiz(selectedIndex) {
       if (state.quiz.answered) return;
-
       state.quiz.answered = true;
 
       const question = quizQuestions[state.quiz.currentQuestion];
@@ -2485,9 +2041,7 @@
       const feedback = document.getElementById("quizFeedback");
       const nextButton = document.getElementById("nextQuestion");
 
-      buttons.forEach(button => {
-        button.disabled = true;
-      });
+      buttons.forEach(button => { button.disabled = true; });
 
       const isCorrect = selectedIndex === question.answer;
 
@@ -2497,23 +2051,14 @@
         feedback.className = "quiz-feedback correct";
       } else {
         feedback.textContent =
-          "Hindi tama. " +
-          question.explanation +
-          " Ang tamang sagot ay: " +
-          question.choices[question.answer] +
-          ".";
-
+          "Hindi tama. " + question.explanation +
+          " Ang tamang sagot ay: " + question.choices[question.answer] + ".";
         feedback.className = "quiz-feedback wrong";
       }
 
       buttons.forEach((button, index) => {
-        if (index === question.answer) {
-          button.classList.add("correct");
-        }
-
-        if (index === selectedIndex && !isCorrect) {
-          button.classList.add("wrong");
-        }
+        if (index === question.answer) button.classList.add("correct");
+        if (index === selectedIndex && !isCorrect) button.classList.add("wrong");
       });
 
       state.quiz.answers.push({
@@ -2524,15 +2069,13 @@
       });
 
       nextButton.style.display = "inline-flex";
+      nextButton.focus();
     }
 
     function nextQuizQuestion() {
       if (!state.quiz.answered) return;
 
-      if (
-        state.quiz.currentQuestion ===
-        quizQuestions.length - 1
-      ) {
+      if (state.quiz.currentQuestion === quizQuestions.length - 1) {
         state.quiz.finished = true;
         renderQuiz();
         return;
@@ -2540,7 +2083,6 @@
 
       state.quiz.currentQuestion++;
       state.quiz.answered = false;
-
       renderQuiz();
     }
 
@@ -2550,7 +2092,6 @@
       const percentage = Math.round((score / total) * 100);
 
       let message;
-
       if (percentage === 100) {
         message = "Napakahusay! Kumpleto ang iyong kaalaman.";
       } else if (percentage >= 70) {
@@ -2562,59 +2103,28 @@
       }
 
       const review = state.quiz.answers.map((item, index) => `
-        <div class="review-item">
+        <div class="review-item ${item.isCorrect ? "right" : "wrong"}">
           <strong>${index + 1}. ${escapeHTML(item.question)}</strong><br>
-          <span>
-            Iyong sagot:
-            ${escapeHTML(item.selected)}
-          </span>
-          <br>
-          <span>
-            Tamang sagot:
-            ${escapeHTML(item.correct)}
-          </span>
+          <span>Iyong sagot: ${escapeHTML(item.selected)}</span><br>
+          <span>Tamang sagot: ${escapeHTML(item.correct)}</span>
         </div>
       `).join("");
 
       quizShell.innerHTML = `
         <div class="quiz-result">
-
-          <div class="quiz-meta" style="justify-content:center;">
-            FINAL REVIEW
-          </div>
-
-          <h3 class="quiz-question">
-            Natapos mo na ang quiz.
-          </h3>
-
-          <div class="score-circle">
-            ${score}/${total}
-          </div>
-
-          <p>
-            <strong>${percentage}%</strong>
-          </p>
-
-          <p style="color:var(--muted); margin-top:8px;">
-            ${message}
-          </p>
-
-          <div class="review-list">
-            ${review}
-          </div>
-
+          <div class="quiz-meta" style="justify-content:center;">FINAL REVIEW</div>
+          <h3 class="quiz-question">Natapos mo na ang quiz.</h3>
+          <div class="score-circle">${score}/${total}</div>
+          <p><strong>${percentage}%</strong></p>
+          <p style="color:var(--muted); margin-top:8px;">${message}</p>
+          <div class="review-list">${review}</div>
           <div style="margin-top:30px;">
-            <button class="btn btn-primary" id="restartQuiz">
-              Subukan Muli
-            </button>
+            <button class="btn btn-primary" id="restartQuiz">Subukan Muli</button>
           </div>
-
         </div>
       `;
 
-      document
-        .getElementById("restartQuiz")
-        .addEventListener("click", restartQuiz);
+      document.getElementById("restartQuiz").addEventListener("click", restartQuiz);
     }
 
     function restartQuiz() {
@@ -2623,7 +2133,6 @@
       state.quiz.answered = false;
       state.quiz.finished = false;
       state.quiz.answers = [];
-
       renderQuiz();
     }
 
@@ -2631,7 +2140,6 @@
     function setFieldError(groupId, errorId, message) {
       const group = document.getElementById(groupId);
       const error = document.getElementById(errorId);
-
       group.classList.toggle("invalid", Boolean(message));
       error.textContent = message;
     }
@@ -2640,23 +2148,13 @@
       const value = document.getElementById("name").value.trim();
 
       if (!value) {
-        setFieldError(
-          "nameGroup",
-          "nameError",
-          "Pakilagay ang iyong pangalan."
-        );
+        setFieldError("nameGroup", "nameError", "Pakilagay ang iyong pangalan.");
         return false;
       }
-
       if (value.length < 2) {
-        setFieldError(
-          "nameGroup",
-          "nameError",
-          "Dapat ay hindi bababa sa 2 character ang pangalan."
-        );
+        setFieldError("nameGroup", "nameError", "Dapat ay hindi bababa sa 2 character ang pangalan.");
         return false;
       }
-
       setFieldError("nameGroup", "nameError", "");
       return true;
     }
@@ -2665,26 +2163,15 @@
       const value = document.getElementById("email").value.trim();
 
       if (!value) {
-        setFieldError(
-          "emailGroup",
-          "emailError",
-          "Pakilagay ang iyong email."
-        );
+        setFieldError("emailGroup", "emailError", "Pakilagay ang iyong email.");
         return false;
       }
 
-      const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailPattern.test(value)) {
-        setFieldError(
-          "emailGroup",
-          "emailError",
-          "Pakipasok ang valid na email address."
-        );
+        setFieldError("emailGroup", "emailError", "Pakipasok ang valid na email address.");
         return false;
       }
-
       setFieldError("emailGroup", "emailError", "");
       return true;
     }
@@ -2693,38 +2180,26 @@
       const value = document.getElementById("message").value.trim();
 
       if (!value) {
-        setFieldError(
-          "messageGroup",
-          "messageError",
-          "Pakilagay ang iyong mensahe."
-        );
+        setFieldError("messageGroup", "messageError", "Pakilagay ang iyong mensahe.");
         return false;
       }
-
       if (value.length < 10) {
-        setFieldError(
-          "messageGroup",
-          "messageError",
-          "Ang mensahe ay dapat hindi bababa sa 10 character."
-        );
+        setFieldError("messageGroup", "messageError", "Ang mensahe ay dapat hindi bababa sa 10 character.");
         return false;
       }
-
       setFieldError("messageGroup", "messageError", "");
       return true;
     }
 
-    document
-      .getElementById("name")
-      .addEventListener("blur", validateName);
+    document.getElementById("name").addEventListener("blur", validateName);
+    document.getElementById("email").addEventListener("blur", validateEmail);
+    document.getElementById("message").addEventListener("blur", validateMessage);
 
-    document
-      .getElementById("email")
-      .addEventListener("blur", validateEmail);
-
-    document
-      .getElementById("message")
-      .addEventListener("blur", validateMessage);
+    const messageField = document.getElementById("message");
+    const messageCount = document.getElementById("messageCount");
+    messageField.addEventListener("input", () => {
+      messageCount.textContent = `${messageField.value.length} / 500`;
+    });
 
     feedbackForm.addEventListener("submit", event => {
       event.preventDefault();
@@ -2735,14 +2210,14 @@
 
       if (!validName || !validEmail || !validMessage) {
         showToast("Pakisuri ang mga field na may error.");
+        const firstInvalid = feedbackForm.querySelector(".invalid input, .invalid textarea");
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
 
       feedbackForm.reset();
-
-      showToast(
-        "Salamat! Matagumpay na naipasa ang iyong feedback."
-      );
+      messageCount.textContent = "0 / 500";
+      showToast("Salamat! Matagumpay na naipasa ang iyong feedback.");
     });
 
     // ===== Back to Top =====
@@ -2759,11 +2234,8 @@
     // ===== Image Fallback =====
     document.addEventListener("error", event => {
       const element = event.target;
-
       if (element.tagName !== "IMG") return;
-
       element.style.background = "#E3ECFA";
-
     }, true);
 
     // ===== Initialization =====
